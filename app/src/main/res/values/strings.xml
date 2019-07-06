@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyPursaches</string>
+    <string name="empty_message">Здесь сейчас пусто! Создайте новый список</string>
+    <string name="add_name_hint">Введите название товара</string>
+</resources>
