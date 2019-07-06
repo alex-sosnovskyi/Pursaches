@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import java.util.List;
 
+import dagger.Provides;
 import ua.i.pl.afs.mypursaches.models.Pursache;
 import ua.i.pl.afs.mypursaches.views.BaseActivity;
 

@@ -6,11 +6,14 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.Module;
+import dagger.Provides;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import ua.i.pl.afs.mypursaches.models.Pursache;
 import ua.i.pl.afs.mypursaches.models.Repository;
-
 
 public class DbHelper {
     private final AppDatabase database;
@@ -36,8 +39,8 @@ public class DbHelper {
                     @Override
                     public void accept(List<Pursache> pursacheList) throws Exception {
                         pursachesResult.clear();
-                        for (Pursache current: pursacheList){
-                            if(current.isBought()==isBrought){
+                        for (Pursache current : pursacheList) {
+                            if (current.isBought() == isBrought) {
                                 pursachesResult.add(current);
                             }
                         }

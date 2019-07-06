@@ -16,16 +16,21 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import ua.i.pl.afs.mypursaches.R;
+import ua.i.pl.afs.mypursaches.core.PursacheApp;
 import ua.i.pl.afs.mypursaches.presenter.IPresenter;
+import ua.i.pl.afs.mypursaches.presenter.PursachePresenter;
 import ua.i.pl.afs.mypursaches.utils.RequestCodes;
 
 public class AddActivity extends BaseActivity {
-    private IPresenter presenter;
+    @Inject
+     IPresenter presenter;
     @BindView(R.id.preview)
     ImageView preview;
     @BindView(R.id.name_field)
@@ -44,7 +49,8 @@ public class AddActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         ButterKnife.bind(this);
-        presenter = getApp().getPresenter();
+        //presenter = getApp().getPresenter();
+        PursacheApp.getComponent().inject(this);
         presenter.attach(this);
         saveButton.setEnabled(false);
     }

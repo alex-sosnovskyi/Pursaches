@@ -8,17 +8,22 @@ import android.view.View;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ua.i.pl.afs.mypursaches.R;
 import ua.i.pl.afs.mypursaches.core.ClickedCallback;
+import ua.i.pl.afs.mypursaches.core.PursacheApp;
 import ua.i.pl.afs.mypursaches.core.PursachesItemAdapter;
 import ua.i.pl.afs.mypursaches.models.Pursache;
 import ua.i.pl.afs.mypursaches.presenter.IPresenter;
+import ua.i.pl.afs.mypursaches.presenter.PursachePresenter;
 
 public class MainActivity extends BaseActivity implements ClickedCallback {
-    private IPresenter presenter;
+    @Inject
+    IPresenter presenter;
 
     @BindView(R.id.empty_message_text_view)
     View emptyMessageTextView;
@@ -52,7 +57,8 @@ public class MainActivity extends BaseActivity implements ClickedCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        presenter = getApp().getPresenter();
+       //presenter = getApp().getPresenter();
+        PursacheApp.getComponent().inject(this);
         initRecyclerView();
     }
 

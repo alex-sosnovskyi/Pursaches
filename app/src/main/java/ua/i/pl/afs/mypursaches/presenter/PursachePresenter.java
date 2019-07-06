@@ -1,12 +1,12 @@
 package ua.i.pl.afs.mypursaches.presenter;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
@@ -17,6 +17,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
 import ua.i.pl.afs.mypursaches.BuildConfig;
 import ua.i.pl.afs.mypursaches.core.DataObserver;
 import ua.i.pl.afs.mypursaches.models.Pursache;
@@ -25,17 +30,17 @@ import ua.i.pl.afs.mypursaches.models.Repository;
 import ua.i.pl.afs.mypursaches.utils.RequestCodes;
 import ua.i.pl.afs.mypursaches.views.BaseActivity;
 
-
 public class PursachePresenter implements IPresenter, DataObserver {
     private BaseActivity mView;
-    private Repository mRepository;
+
+    Repository mRepository;
     private boolean isAttached;
     private String mCurrentPhotoPath;
     private Uri uri;
     private static int counter = 0;
 
-    public PursachePresenter(Context context) {
-        this.mRepository = new PursachesModel(context);
+    public PursachePresenter(Repository repository) {
+        mRepository = repository;
         mRepository.addObserver(this);
     }
 

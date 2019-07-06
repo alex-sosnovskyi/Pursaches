@@ -87,7 +87,14 @@ public class PursachesItemAdapter extends RecyclerView.Adapter<PursachesItemAdap
                         System.out.println("Exception e " + e.getMessage());
                     }
                 } else {
-                    System.out.println("the file does not exist " + pursache.getPict());
+                    //System.out.println("the file does not exist " + pursache.getPict());
+                    try {
+                        File externalFilesDir = itemView.getContext().getExternalFilesDir(pursache.getPict());
+                        System.out.println(externalFilesDir.getAbsolutePath());
+                    }catch (Exception ex){
+                        System.out.println();
+                        System.out.println("externalFilesDir not exsists "+ex.getMessage());
+                    }
                 }
             } else {
                 pursacheImg.setVisibility(View.GONE);

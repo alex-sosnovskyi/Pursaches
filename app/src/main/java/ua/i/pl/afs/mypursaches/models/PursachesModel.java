@@ -1,12 +1,17 @@
 package ua.i.pl.afs.mypursaches.models;
 
 
-import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
 import ua.i.pl.afs.mypursaches.core.DataObserver;
 import ua.i.pl.afs.mypursaches.db.DbHelper;
 
@@ -14,11 +19,12 @@ import ua.i.pl.afs.mypursaches.db.DbHelper;
 public class PursachesModel implements Repository {
     private List<Pursache> pursacheList = new ArrayList<>();
     private List<Long> broughtIdList = new ArrayList<>();
-    private DbHelper dbHelper;
+
+    DbHelper dbHelper;
     private DataObserver observer;
 
-    public PursachesModel(Context context) {
-        dbHelper = new DbHelper(context);
+    public PursachesModel(DbHelper helper) {
+        dbHelper = helper;
         dbHelper.addObserver(this);
 
     }
@@ -33,7 +39,7 @@ public class PursachesModel implements Repository {
         dbHelper.getPursaches(brought);
     }
 
-    @Override
+
     public List<Pursache> getPursachesResults() {
         return pursacheList;
     }
@@ -65,6 +71,7 @@ public class PursachesModel implements Repository {
     public void removeFromBroughtedAll() {
         broughtIdList.clear();
     }
+
 
     @Override
     public void delPursaches() {
