@@ -90,7 +90,7 @@ public class PursachesItemAdapter extends RecyclerView.Adapter<PursachesItemAdap
                     if(pursache.getPictUri().isEmpty()){
                         pursacheImg.setVisibility(View.GONE);
                     }else{
-                        Picasso.get().load(Uri.parse(pursache.getPictUri())).fit().into(pursacheImg);
+                        Picasso.get().load(Uri.parse(pursache.getPictUri())).error(R.drawable.no_photo).fit().into(pursacheImg);
                         pursacheImg.setVisibility(View.VISIBLE);
                     }
                 }
