@@ -21,6 +21,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:background">@drawable/mains_back</item>
     </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/back_ground_splash</item>
+    </style>
     <style name="ButtonsStyle">
         <item name="android:background">@drawable/buttons_back</item>
         <item name="android:layout_margin">5dp</item>
