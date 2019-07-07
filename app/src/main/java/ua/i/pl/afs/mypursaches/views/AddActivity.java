@@ -2,7 +2,11 @@ package ua.i.pl.afs.mypursaches.views;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.sql.SQLOutput;
 
 import javax.inject.Inject;
 
@@ -49,7 +56,6 @@ public class AddActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         ButterKnife.bind(this);
-        //presenter = getApp().getPresenter();
         PursacheApp.getComponent().inject(this);
         presenter.attach(this);
         saveButton.setEnabled(false);
@@ -77,7 +83,6 @@ public class AddActivity extends BaseActivity {
         presenter.savePressed(((TextInputEditText) nameInput).getText().toString());
         ((TextInputEditText) nameInput).setText("");
          Toast.makeText(this, "Товар добавлен", Toast.LENGTH_SHORT).show();
-        //Picasso.get().load("").into(preview);
     }
 
     @OnClick(R.id.fab_photo)
@@ -154,6 +159,7 @@ public class AddActivity extends BaseActivity {
     @Override
     public void showPhoto(Uri uri) {
         Picasso.get().load(uri).into(preview);
+        ((TextInputEditText) nameInput).setText("картинка");
     }
 
     @Override

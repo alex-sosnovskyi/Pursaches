@@ -77,7 +77,7 @@ public class PursachePresenter implements IPresenter, DataObserver {
         if (text.isEmpty()) {
             return;
         } else {
-            mRepository.addPursache(text, mCurrentPhotoPath, uri);
+            mRepository.addPursache(text, mCurrentPhotoPath, mCurrentPhotoPath);
             mCurrentPhotoPath = "";
             uri = null;
             mView.showPhoto(uri);
@@ -136,8 +136,8 @@ public class PursachePresenter implements IPresenter, DataObserver {
     @Override
     public void galleryPhotoRequestOk(Intent data) {
         uri = data.getData();
-        mCurrentPhotoPath = uri.getPath();
-        mCurrentPhotoPath = mCurrentPhotoPath.replace(':', '/');
+        String encodedPath ="content://"+"media"+ uri.getPath();
+        mCurrentPhotoPath = encodedPath;
         mView.showPhoto(uri);
     }
 

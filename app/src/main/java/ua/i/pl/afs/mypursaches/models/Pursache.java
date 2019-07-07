@@ -10,8 +10,7 @@ public class Pursache {
     @PrimaryKey
     private long id;
     private String name;
-    @Embedded
-    private Uri pictUri;
+    private String pictUri;
     private String pict;
     private boolean bought;
 
@@ -36,7 +35,7 @@ public class Pursache {
         this.name = name;
     }
 
-    public Uri getPictUri() {
+    public String getPictUri() {
         return pictUri;
     }
 
@@ -48,7 +47,7 @@ public class Pursache {
         return pict;
     }
 
-    public void setPictUri(Uri pictUri) {
+    public void setPictUri(String pictUri) {
         this.pictUri = pictUri;
     }
 

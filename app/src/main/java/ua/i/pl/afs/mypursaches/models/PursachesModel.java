@@ -51,7 +51,7 @@ public class PursachesModel implements Repository {
     }
 
     @Override
-    public void addPursache(String pursacheName, String path, Uri pathUri) {
+    public void addPursache(String pursacheName, String path, String pathUri) {
         Pursache pursache = new Pursache(pursacheName);
         if (null != path) {
             pursache.setPict(path);

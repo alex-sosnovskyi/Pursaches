@@ -9,7 +9,7 @@ import ua.i.pl.afs.mypursaches.core.DataObserver;
 public interface Repository {
     void getPursaches(boolean brouht);
 
-    void addPursache(String pursacheName, String path, Uri pathUri);
+    void addPursache(String pursacheName, String path, String pathUri);
 
     void addBought(long pursacheId);
 
