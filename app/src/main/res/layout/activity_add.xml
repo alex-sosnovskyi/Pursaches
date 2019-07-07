@@ -21,6 +21,7 @@
         android:id="@+id/name_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#FFFA42"
         android:layout_gravity="center"
         android:hint="@string/add_name_hint"
         android:inputType="text" />

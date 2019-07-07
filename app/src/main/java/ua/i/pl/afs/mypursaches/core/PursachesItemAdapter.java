@@ -87,8 +87,12 @@ public class PursachesItemAdapter extends RecyclerView.Adapter<PursachesItemAdap
                         System.out.println("Exception e " + e.getMessage());
                     }
                 } else {
-                    Picasso.get().load(Uri.parse(pursache.getPictUri())).fit().into(pursacheImg);
-                    pursacheImg.setVisibility(View.VISIBLE);
+                    if(pursache.getPictUri().isEmpty()){
+                        pursacheImg.setVisibility(View.GONE);
+                    }else{
+                        Picasso.get().load(Uri.parse(pursache.getPictUri())).fit().into(pursacheImg);
+                        pursacheImg.setVisibility(View.VISIBLE);
+                    }
                 }
             } else {
                 pursacheImg.setVisibility(View.GONE);
