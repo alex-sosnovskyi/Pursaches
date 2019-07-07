@@ -57,8 +57,16 @@ public class AddActivity extends BaseActivity {
         setContentView(R.layout.activity_add);
         ButterKnife.bind(this);
         PursacheApp.getComponent().inject(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         presenter.attach(this);
         saveButton.setEnabled(false);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+       // finish();
+        back();
+        return true;
     }
 
     @OnTextChanged(R.id.name_field)

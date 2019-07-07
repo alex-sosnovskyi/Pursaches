@@ -5,17 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ua.i.pl.afs.mypursaches.views.MainActivity">
+
     <ProgressBar
         android:id="@+id/progressBar"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_height="wrap_content" />
+        android:visibility="invisible" />
+
     <TextView
         android:id="@+id/empty_message_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:textColor="@color/colorAccent"
         android:text="@string/empty_message" />
 
     <android.support.v7.widget.RecyclerView
@@ -29,9 +32,9 @@
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
         android:layout_above="@+id/buttons_wrapper"
         android:layout_alignParentEnd="true"
+        android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
         android:src="@drawable/add_circle" />
 
@@ -44,18 +47,23 @@
 
         <Button
             android:id="@+id/pursaches_quenie_button"
+            style="@style/ButtonsStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="нужно купить" />
+            android:textStyle="bold|italic"
+            android:text="@string/need_by" />
 
         <Button
             android:id="@+id/archive_button"
+            style="@style/ButtonsStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="архив покупок" />
+            android:textStyle="bold|italic"
+            android:text="@string/archive" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/buttons_wrapper_alt"
         android:layout_width="match_parent"
@@ -65,16 +73,20 @@
 
         <Button
             android:id="@+id/cancellation_button"
+            style="@style/ButtonsStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="отмена" />
+            android:text="@string/cancel"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/del_button"
+            style="@style/ButtonsStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="удалить" />
+            android:text="@string/delete"
+            android:textStyle="bold|italic" />
     </LinearLayout>
 </RelativeLayout>
